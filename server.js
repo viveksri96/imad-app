@@ -6,12 +6,12 @@ var app = express();
 app.use(morgan('combined'));
 
 var config = {
-    user: 'vivsri95',
-    database: 'vivsri95',
-    host: 'db.imad.hasura.io',
-    port: '5432',
-    password: process.env.DB_PASSWORD,
-}
+  user: 'vivsri95',
+  database:'vivsri95',
+  host:'db.imad.hasura-app.io',
+  port:'5432',
+  password: process.env.DB_PASSWORD
+};
 
 
 app.get('/', function (req, res) {
@@ -27,16 +27,17 @@ app.get('/ui/madi.png', function (req, res) {
 });
 
 var pool = new Pool(config);
-app.get('/test-db',function (req, res) {
-    console.log(pool);
-    pool.query('SELECT * FROM test',function(err,result){
-        if(err){
-            res.send(err.toString());
-        }
-        else{
-            res.send(JSON.stringify(result));
-        }
-    });
+app.get('/getuserlist', function (req, res) {
+pool.query('SELECT * FROM users', (err, result) => {
+  if(err)
+  {
+     res.status(500).send(err.toString()); 
+  }
+  else
+  {
+      res.send(JSON.stringify(result.rows));
+  }
+ });
 });
 
 
