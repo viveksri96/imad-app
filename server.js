@@ -2,17 +2,16 @@ var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
 var Pool = require('pg').Pool;
+var app = express();
+app.use(morgan('combined'));
 
 var config = {
     user:'vivsri95',
     database: 'vivsri95',
     host: 'db.imad.hasura.io',
-    port:'5432',
     password:'db-vivsri95-53317'
 }
 
-var app = express();
-app.use(morgan('combined'));
 
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
