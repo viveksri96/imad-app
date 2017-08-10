@@ -35,7 +35,7 @@ pool.query('SELECT * FROM users', (err, result) => {
   }
   else
   {
-      res.send(JSON.stringify(result.rows));
+      res.send(JSON.stringify(result));
   }
  });
 });
