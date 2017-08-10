@@ -2,6 +2,20 @@
 <html>
     <head>
         <link href="/ui/style.css" rel="stylesheet" />
+        <script>
+ $.ajax({
+                url: "http://pk155mail.imad.hasura-app.io/getuserlist",
+                type: "GET",
+                dataType: "json",
+                crossDomain: true,
+                success: function (data) {
+                    //Manipulate DOM using the data JSON received from server
+                },
+                error: function () {
+                    alert('Unable to connect to the server');
+                }
+            });
+</script>
     </head>
     <body>
         <div class="center">
