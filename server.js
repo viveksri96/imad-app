@@ -9,8 +9,9 @@ var config = {
     user:'vivsri95',
     database: 'vivsri95',
     host: 'db.imad.hasura.io',
-    password:'db-vivsri95-53317'
-}
+    port:'5432',
+    password:process.env.DB-PASSWORD
+};
 
 
 app.get('/', function (req, res) {
