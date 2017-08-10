@@ -11,7 +11,7 @@ var config = {
     host: 'db.imad.hasura.io',
     port: '5432',
     password: 'db-vivsri95-53317',
-};
+}
 
 
 app.get('/', function (req, res) {
@@ -31,7 +31,7 @@ app.get('/test-db',function (req, res) {
     console.log(pool);
     pool.query('SELECT * FROM test',function(err,result){
         if(err){
-            console.log(err);
+            res.status(500).send(err.toString());
         }
         else{
             res.send(JSON.stringify(result));
