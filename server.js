@@ -10,7 +10,7 @@ var config = {
     database: 'vivsri95',
     host: 'db.imad.hasura.io',
     port: '5432',
-    password: 'db-vivsri95-53317',
+    password: process.env.DB_PASSWORD,
 }
 
 
