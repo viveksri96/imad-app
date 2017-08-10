@@ -31,7 +31,7 @@ app.get('/test-db',function (req, res) {
     console.log(pool);
     pool.query('SELECT * FROM test',function(err,result){
         if(err){
-            console.log('ege');
+            res.send(err.toString());
         }
         else{
             res.send(JSON.stringify(result));
